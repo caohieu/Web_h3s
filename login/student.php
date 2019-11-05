@@ -6,10 +6,11 @@ if (isset($_GET['dangnhap']))
     $username = $_GET['usrname'];
     $password = $_GET['psw'];
     $password = md5($password);
-    $query = mysqli_query($conn,"SELECT student_code,first_name  FROM intern_students WHERE student_code='$username'");
+    $query = mysqli_query($conn,"SELECT id,student_code,first_name  FROM intern_students WHERE student_code='$username'");
     if (mysqli_num_rows($query) != 0) {
         $row = mysqli_fetch_array($query);
         $name=$row['first_name'];
+        $studentId=$row['id'];
         $dangnhap='stu';
         echo $dangnhap;
         //header("Location: home.php");
@@ -31,7 +32,7 @@ if (isset($_GET['dangnhap']))
                 <input class="w3-input w3-border w3-margin-bottom" type="text" placeholder="Enter Username" name="usrname" required>
                 <label><b>Password</b></label>
                 <input class="w3-input w3-border" type="text" placeholder="Enter Password" name="psw" required>
-                <input class="w3-button w3-block w3-green w3-section w3-padding" type="submit" name="dangnhap">Đăng nhập</input>
+                <input class="w3-button w3-block w3-green w3-section w3-padding" type="submit" name="dangnhap" value="Đăng nhập">
                 <input class="w3-check w3-margin-top" type="checkbox" checked="checked"> Remember me
             </div>
         </form>
