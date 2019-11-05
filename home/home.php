@@ -47,11 +47,11 @@
     <div>
         <?php
         if(!isset($name)){
-            include "form_login.php";
+            include "../login/form_login.php";
         }
         else{
-            if($dangnhap=="stu")
-            include "form_login.php";
+            //if($dangnhap=="stu")
+            //include "";
         }
         ?>
     </div>
