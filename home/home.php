@@ -50,8 +50,11 @@
             include "../login/form_login.php";
         }
         else{
-            //if($dangnhap=="stu")
-            //include "";
+            if($dangnhap=='stu')
+                include "../view/student_view.php";
+            if($dangnhap=='tea')
+                include "../view/teacher_view.php";
+
         }
         ?>
     </div>

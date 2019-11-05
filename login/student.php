@@ -10,7 +10,8 @@ if (isset($_GET['dangnhap']))
     if (mysqli_num_rows($query) != 0) {
         $row = mysqli_fetch_array($query);
         $name=$row['first_name'];
-        $dangnhap="stu";
+        $dangnhap='stu';
+        echo $dangnhap;
         //header("Location: home.php");
         include "../home/home.php";
         exit;
