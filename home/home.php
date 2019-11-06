@@ -43,7 +43,6 @@
             } ?>
 		</div>
 	</div>
-
     <div>
         <?php
         if(!isset($name)){
@@ -54,7 +53,6 @@
                 include "../view/student_view.php";
             if($dangnhap=='tea')
                 include "../view/teacher_view.php";
-
         }
         ?>
     </div>

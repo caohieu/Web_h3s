@@ -12,12 +12,10 @@ if (mysqli_num_rows($queryctyname) != 0) {
     $namecty=$rowctynam['organization_name'];
 }
 ?>
-
 <!DOCTYPE html>
-<div class="w3-row-padding w3-light-grey w3-padding-64 w3-container" style="height: 600px">
+<div id="scr_1001a" class="w3-row-padding w3-light-grey w3-padding-64 w3-container" style="height: 600px">
     <h1 class="w3-padding-32 w3-center">PHIẾU ĐĂNG KÝ</h1>
     <div class="w3-center">
-
         <div class="w3-content"style="width: 500px">
             <div class="w3-half">
                 <h5> Sinh viên : </h5>
@@ -27,7 +25,6 @@ if (mysqli_num_rows($queryctyname) != 0) {
                 <h5> Ngày thêm : </h5>
                 <h5> Trạng thái :  </h5>
             </div>
-
             <div class="w3-half">
                 <h5><?php echo $name?></h5>
                 <h5><?php echo $namecty?></h5>
@@ -37,13 +34,9 @@ if (mysqli_num_rows($queryctyname) != 0) {
                 <input value="<?php echo $status ?>">
             </div>
             <div >
-                <input class="w3-button w3-green w3-section w3-center" type="submit" name="xacnhan" style="width: 300px" value="Xác nhận">
+                <input onclick="document.getElementById('scr_1001a').style.display='none'" class="w3-button w3-green w3-section w3-center" type="submit" name="xacnhan" style="width: 300px" value="Xác nhận">
             </div>
 
         </div>
-
-
-
     </div>
-
 </div>
