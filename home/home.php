@@ -51,6 +51,7 @@
         else{
             if($dangnhap=='stu')
                 include "../view/student_view.php";
+                include "../view/student_view2.php";
             if($dangnhap=='tea')
                 include "../view/teacher_view.php";
         }
