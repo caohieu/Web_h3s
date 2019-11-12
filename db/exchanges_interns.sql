@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1:3306
--- Thời gian đã tạo: Th10 12, 2019 lúc 05:39 AM
+-- Thời gian đã tạo: Th10 12, 2019 lúc 04:11 PM
 -- Phiên bản máy phục vụ: 5.7.21
 -- Phiên bản PHP: 5.6.35
 
@@ -35,7 +35,14 @@ CREATE TABLE IF NOT EXISTS `intern_ability_dictionary` (
   `aibility_type` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   `ability_note` varchar(2) COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=124 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `intern_ability_dictionary`
+--
+
+INSERT INTO `intern_ability_dictionary` (`id`, `ability_name`, `aibility_type`, `ability_note`) VALUES
+(123, 'Java', 'lap trinh', '10');
 
 -- --------------------------------------------------------
 
@@ -107,7 +114,14 @@ CREATE TABLE IF NOT EXISTS `intern_organization_request_abilities` (
   PRIMARY KEY (`id`),
   KEY `fk_organization_request_id_1` (`organization_request_id`),
   KEY `fk_ability_id_2` (`ability_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=124 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `intern_organization_request_abilities`
+--
+
+INSERT INTO `intern_organization_request_abilities` (`id`, `organization_request_id`, `ability_id`, `ability_required`, `note`) VALUES
+(123, 123, 123, 5, 'ko co gi');
 
 -- --------------------------------------------------------
 
