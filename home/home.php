@@ -26,7 +26,15 @@
             if(!isset($name)){
                 include "form_sign_up.php";
             }else{
-                include "acc.php";
+                if($dangnhap=='tea'){
+                    include "acc_teache.php";
+                }
+                if($dangnhap=='stu'){
+                    include "acc_student.php";
+                }
+                if($dangnhap=='com'){
+                    include "acc_company.php";
+                }
             } ?>
 		</div>
 
@@ -39,7 +47,16 @@
             if(!isset($name)){
                 include "form_sign_up.php";
             }else{
-                include "acc.php";
+                if($dangnhap=='tea'){
+                    include "acc_teache.php";
+                }
+                if($dangnhap=='stu'){
+                    include "acc_student.php";
+                }
+                if($dangnhap=='com'){
+                    include "acc_company.php";
+                }
+
             } ?>
 		</div>
 	</div>
@@ -49,11 +66,19 @@
             include "../login/form_login.php";
         }
         else{
-            if($dangnhap=='stu')
+            if($dangnhap=='stu'){
                 include "../view/student_view.php";
                 include "../view/student_view2.php";
-            if($dangnhap=='tea')
+            }
+            if($dangnhap=='tea'){
                 include "../view/teacher_view.php";
+                include "../view/teacher_view2.php";
+            }
+            if($dangnhap=='com'){
+                include "../view/company_view.php";
+                include "../view/company_view2.php";
+            }
+
         }
         ?>
     </div>

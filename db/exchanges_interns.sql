@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1:3306
--- Thời gian đã tạo: Th10 12, 2019 lúc 04:11 PM
+-- Thời gian đã tạo: Th10 23, 2019 lúc 07:23 AM
 -- Phiên bản máy phục vụ: 5.7.21
 -- Phiên bản PHP: 5.6.35
 
@@ -68,7 +68,8 @@ CREATE TABLE IF NOT EXISTS `intern_organization_profile` (
 
 INSERT INTO `intern_organization_profile` (`id`, `organization_name`, `employee_count`, `gross_revenue`, `address`, `home_page`, `tax_number`) VALUES
 (123, 'h3d', 123, 123, 'sadsa', 'dasd', 1234),
-(1243, 'h3d', 123, 123, 'sadsa', 'dasd', 1234);
+(234, 'fpt', 222, 23, 'ewqwewqw', 'qewqwe', 223),
+(1243, 'h3d', 123, 123, 'sadsa', 'dasd', 12345);
 
 -- --------------------------------------------------------
 
@@ -87,7 +88,7 @@ CREATE TABLE IF NOT EXISTS `intern_organization_requests` (
   `status` int(11) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `fk_organization_id` (`organization_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=235 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=457 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Đang đổ dữ liệu cho bảng `intern_organization_requests`
@@ -96,7 +97,9 @@ CREATE TABLE IF NOT EXISTS `intern_organization_requests` (
 INSERT INTO `intern_organization_requests` (`id`, `organization_id`, `subject`, `short_description`, `amount`, `date_submitted`, `status`) VALUES
 (123, 1243, 'sadsa', 'dsasa', '5', '2019-11-12 00:00:00', 0),
 (132, 123, 'ewqew', 'qwewqewq', '5', '2019-11-13 00:00:00', 0),
-(234, 1243, 'wqeqweqw', 'weqewq', '5', '2019-11-13 00:00:00', 0);
+(222, 234, 'sadds', '12321', '5', '2019-11-13 00:00:00', 0),
+(234, 1243, 'wqeqweqw', 'weqewq', '5', '2019-11-13 00:00:00', 0),
+(456, 123, '123321', 'qweqwe', '10', '2019-11-13 00:00:00', 0);
 
 -- --------------------------------------------------------
 

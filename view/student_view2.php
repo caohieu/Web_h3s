@@ -42,24 +42,10 @@ for ($i=0;$i<mysqli_num_rows($querystu2);$i++) {
                             <th><?php echo $amount[0]?></th>
                             <th><?php echo $amount[0]?></th>
                             <th><?php echo $status2[0]?></th>
-                            <th><button onclick="f(); a()" class="w3-light-grey">dangky</button></th>
+                            <th><button onclick="f(); a()" class="w3-light-grey">chi tiet</button></th>
                         </tr>
-                        <tr>
-                            <th><?php if(mysqli_num_rows($querystu2) >= 2)echo $namecty2[1]?></th>
-                            <th><?php if(mysqli_num_rows($querystu2) >= 2)echo $short_description[1]?></th>
-                            <th><?php if(mysqli_num_rows($querystu2) >= 2)echo $amount[1]?></th>
-                            <th><?php if(mysqli_num_rows($querystu2) >= 2)echo $amount[1]?></th>
-                            <th><?php if(mysqli_num_rows($querystu2) >= 2)echo $status2[1]?></th>
-                            <th><button onclick="f();b()" class="w3-light-grey">dangky</button></th>
-                        </tr>
-                        <tr>
-                            <th><?php if(mysqli_num_rows($querystu2) >= 3)echo $namecty2[2]?></th>
-                            <th><?php if(mysqli_num_rows($querystu2) >= 3)echo $short_description[2]?></th>
-                            <th><?php if(mysqli_num_rows($querystu2) >= 3)echo $amount[2]?></th>
-                            <th><?php if(mysqli_num_rows($querystu2) >= 3)echo $amount[2]?></th>
-                            <th><?php if(mysqli_num_rows($querystu2) >= 3)echo $status2[2]?></th>
-                            <th><button onclick="f();c()" class="w3-light-grey">dangky</button></th>
-                        </tr>
+                        <?php if(mysqli_num_rows($querystu2) >= 2) include "btn2.php"?>
+                        <?php if(mysqli_num_rows($querystu2) >= 3) include "btn3.php"?>
                    </table>
                 </td>
                 </tr>

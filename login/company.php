@@ -5,10 +5,11 @@ if (isset($_GET['dangnhap']))
     $username = $_GET['usrname'];
     $password = $_GET['psw'];
     $password = md5($password);
-    $query = mysqli_query($conn,"SELECT student_code,first_name  FROM intern_students WHERE student_code='$username'");
+    $query = mysqli_query($conn,"SELECT tax_number,organization_name,id  FROM intern_organization_profile WHERE tax_number='$username'");
     if (mysqli_num_rows($query) != 0) {
         $row = mysqli_fetch_array($query);
-        $name=$row['first_name'];
+        $name=$row['organization_name'];
+        $idcty=$row['id'];
         $dangnhap="com";
         //header("Location: home.php");
         include "../home/home.php";
@@ -23,7 +24,7 @@ if (isset($_GET['dangnhap']))
             <span onclick="document.getElementById('scr_1002').style.display='none'" class="w3-button w3-xlarge w3-transparent w3-display-topright" title="Close Modal">×</span>
             <img src="upload/image/img_avatar4.png" alt="Avatar" style="width:30%" class="w3-circle w3-margin-top">
         </div>
-        <form method="get" class="w3-container" action="../login/student.php" >
+        <form method="get" class="w3-container" action="../login/company.php" >
             <div class="w3-section w3-white">
                 <label><b>Username</b></label>
                 <input class="w3-input w3-border w3-margin-bottom" type="text" placeholder="Enter Username" name="usrname" required>
