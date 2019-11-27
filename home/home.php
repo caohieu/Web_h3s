@@ -77,6 +77,7 @@
             if($dangnhap=='com'){
                 include "../view/company_view.php";
                 include "../view/company_view2.php";
+                include "../view/company_view3.php";
             }
 
         }

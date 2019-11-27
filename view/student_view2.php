@@ -44,8 +44,8 @@ for ($i=0;$i<mysqli_num_rows($querystu2);$i++) {
                             <th><?php echo $status2[0]?></th>
                             <th><button onclick="f(); a()" class="w3-light-grey">chi tiet</button></th>
                         </tr>
-                        <?php if(mysqli_num_rows($querystu2) >= 2) include "btn2.php"?>
-                        <?php if(mysqli_num_rows($querystu2) >= 3) include "btn3.php"?>
+                        <?php if(mysqli_num_rows($querystu2) >= 2) include "studentRow/btn2.php"?>
+                        <?php if(mysqli_num_rows($querystu2) >= 3) include "studentRow/btn3.php"?>
                    </table>
                 </td>
                 </tr>
