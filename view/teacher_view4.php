@@ -37,16 +37,17 @@ for ($j=0;$j<mysqli_num_rows($queryDanhSachPhieuv1);$j++){
                                 <th style="width: 15%">Trạng thái</th>
                                 <th style="width: 15%">Duyệt</th>
                             </tr>
-                            <?php if(!empty($nameCompanyv1[0])) include "teacherRow/row1003v1/row1.php"?>
-                            <?php if(!empty($nameCompanyv1[1])) include "teacherRow/row1003v1/row2.php"?>
-                            <?php if(!empty($nameCompanyv1[2])) include "teacherRow/row1003v1/row3.php"?>
-                            <?php if(!empty($nameCompanyv1[3])) include "teacherRow/row1003v1/row4.php"?>
-                            <?php if(!empty($nameCompanyv1[4])) include "teacherRow/row1003v1/row5.php"?>
-                            <?php if(!empty($nameCompanyv1[5])) include "teacherRow/row1003v1/row6.php"?>
-                            <?php if(!empty($nameCompanyv1[6])) include "teacherRow/row1003v1/row7.php"?>
-                            <?php if(!empty($nameCompanyv1[7])) include "teacherRow/row1003v1/row8.php"?>
-                            <?php if(!empty($nameCompanyv1[8])) include "teacherRow/row1003v1/row9.php"?>
-                            <?php if(!empty($nameCompanyv1[9])) include "teacherRow/row1003v1/row10.php"?>
+                            <?php
+                            if(!empty($nameCompanyv1[0])) include "teacherRow/row1003v1/row1.php";
+                            if(!empty($nameCompanyv1[1])) include "teacherRow/row1003v1/row2.php";
+                            if(!empty($nameCompanyv1[2])) include "teacherRow/row1003v1/row3.php";
+                            if(!empty($nameCompanyv1[3])) include "teacherRow/row1003v1/row4.php";
+                            if(!empty($nameCompanyv1[4])) include "teacherRow/row1003v1/row5.php";
+                            if(!empty($nameCompanyv1[5])) include "teacherRow/row1003v1/row6.php";
+                            if(!empty($nameCompanyv1[6])) include "teacherRow/row1003v1/row7.php";
+                            if(!empty($nameCompanyv1[7])) include "teacherRow/row1003v1/row8.php";
+                            if(!empty($nameCompanyv1[8])) include "teacherRow/row1003v1/row9.php";
+                            if(!empty($nameCompanyv1[9])) include "teacherRow/row1003v1/row10.php"?>
                         </table>
                     </td>
                 </tr>

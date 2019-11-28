@@ -12,11 +12,13 @@
                                 <th style="width: 20%">Tên</th>
                                 <th style="width: 15%">Thông tin</th>
                             </tr>
-                            <?php if(!empty($firstName[0][0])) include "companyRow/row/row1_1.php"?>
-                            <?php if(!empty($firstName[0][1])) include "companyRow/row/row1_2.php"?>
-                            <?php if(!empty($firstName[0][2])) include "companyRow/row/row1_3.php"?>
-                            <?php if(!empty($firstName[0][3])) include "companyRow/row/row1_4.php"?>
-                            <?php if(!empty($firstName[0][4])) include "companyRow/row/row1_5.php"?>
+                            <?php
+                            if(!empty($firstName[0][0])) include "companyRow/row/row1_1.php";
+                            if(!empty($firstName[0][1])) include "companyRow/row/row1_2.php";
+                            if(!empty($firstName[0][2])) include "companyRow/row/row1_3.php";
+                            if(!empty($firstName[0][3])) include "companyRow/row/row1_4.php";
+                            if(!empty($firstName[0][4])) include "companyRow/row/row1_5.php";
+                            ?>
                         </table>
                     </td>
                 </tr>
@@ -68,11 +70,13 @@
                                 <th style="width: 20%">Tên</th>
                                 <th style="width: 15%">Thông tin</th>
                             </tr>
-                            <?php if(!empty($firstName[2][0])) include "companyRow/row/row3_1.php"?>
-                            <?php if(!empty($firstName[2][1])) include "companyRow/row/row3_2.php"?>
-                            <?php if(!empty($firstName[2][2])) include "companyRow/row/row3_3.php"?>
-                            <?php if(!empty($firstName[2][3])) include "companyRow/row/row3_4.php"?>
-                            <?php if(!empty($firstName[2][4])) include "companyRow/row/row3_5.php"?>
+                            <?php
+                            if(!empty($firstName[2][0])) include "companyRow/row/row3_1.php";
+                            if(!empty($firstName[2][1])) include "companyRow/row/row3_2.php";
+                            if(!empty($firstName[2][2])) include "companyRow/row/row3_3.php";
+                            if(!empty($firstName[2][3])) include "companyRow/row/row3_4.php";
+                            if(!empty($firstName[2][4])) include "companyRow/row/row3_5.php";
+                            ?>
                         </table>
                     </td>
                 </tr>

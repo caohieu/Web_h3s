@@ -11,7 +11,6 @@ if (isset($_GET['dangnhap']))
         $name=$row['first_name'];
         $studentId=$row['id'];
         $dangnhap='stu';
-        echo $dangnhap;
         //header("Location: home.php");
         include "../home/home.php";
         exit;

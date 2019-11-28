@@ -102,13 +102,11 @@ function f() {
 var namecongty,mota,cantuyen,dadk,dkpc,tt;
 
 function a(){
-    namecongty = '<?php echo $name; ?>';
     mota= '<?php echo $short_description[0]; ?>';
     cantuyen= '<?php echo $amount[0]; ?>';
     dadk= '<?php echo $amount[0]; ?>';
     dkpc= '<?php echo $amount[0]; ?>';
     tt= '<?php echo $status2[0]; ?>';
-    //document.getElementById('a').innerHTML  = namecongty;
     document.getElementById('b').value  = mota;
     document.getElementById('c').value  = cantuyen;
     document.getElementById('d').value  = dadk;
@@ -116,13 +114,11 @@ function a(){
     document.getElementById('f').value  = tt;
 }
 function b(){
-    namecongty = '<?php  echo $name; ?>';
     mota= '<?php if(!empty($short_description[1])) echo $short_description[1]; ?>';
     cantuyen= '<?php if(!empty($amount[1])) echo $amount[1]; ?>';
     dadk= '<?php if(!empty($amount[1])) echo $amount[1]; ?>';
     dkpc= '<?php if(!empty($amount[1])) echo $amount[1]; ?>';
     tt= '<?php if(!empty($status2[1])) echo $status2[1]; ?>';
-    //document.getElementById("a").innerHTML = namecongty;
     document.getElementById('b').value = mota;
     document.getElementById('c').value = cantuyen;
     document.getElementById('d').value = dadk;
@@ -130,13 +126,11 @@ function b(){
     document.getElementById('f').value = tt;
 }
 function c(){
-    namecongty = '<?php echo $name; ?>';
     mota= '<?php if(!empty($short_description[2])) echo $short_description[2]; ?>';
     cantuyen= '<?php if(!empty($amount[2])) echo $amount[2]; ?>';
     dadk= '<?php if(!empty($amount[2])) echo $amount[2]; ?>';
     dkpc= '<?php if(!empty($amount[2])) echo $amount[2]; ?>';
     tt= '<?php if(!empty($status2[2])) echo $status2[2]; ?>';
-    //document.getElementById('a').innerHTML  = namecongty;
     document.getElementById('b').value  = mota;
     document.getElementById('c').value  = cantuyen;
     document.getElementById('d').value  = dadk;
