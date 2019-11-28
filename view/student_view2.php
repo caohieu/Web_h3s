@@ -21,7 +21,7 @@ for ($i=0;$i<mysqli_num_rows($querystu2);$i++) {
 ?>
 <!DOCTYPE html>
 <div id="scr_1001b" class="w3-row-padding w3-light-grey w3-padding-64 w3-container" style="height: 800px;display: none">
-    <h1 class="w3-padding-32 w3-center">Danh sach cong ty</h1>
+    <h1 class="w3-padding-32 w3-center">DANH SÁCH YÊU CẦU TỪ CÔNG TY</h1>
     <div class="w3-center">
         <div class="w3-content"style="width: 700px">
             <table>

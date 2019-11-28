@@ -1,10 +1,15 @@
 <?php
 $querystu = mysqli_query($conn,"SELECT organization_request_id,status,create_date  FROM intern_organization_request_assignment WHERE student_id='$studentId'");
 if (mysqli_num_rows($querystu) != 0) {
-    $rowstu = mysqli_fetch_array($querystu);
-    $idcty=$rowstu['organization_request_id'];
-    $status=$rowstu['status'];
-    $create_date=$rowstu['create_date'];
+    $rowstu = mysqli_fetch_all($querystu);
+    for ($i=0;$i<mysqli_num_rows($querystu);$i++){
+        if($rowstu[$i][1]==0){
+            $idcty=$rowstu[$i][0];
+            $status=$rowstu[$i][1];
+            $create_date=$rowstu[$i][2];
+            break;
+        }
+    }
 }
 $queryctyname = mysqli_query($conn,"SELECT organization_name  FROM intern_organization_profile WHERE id='$idcty'");
 if (mysqli_num_rows($queryctyname) != 0) {
@@ -36,7 +41,6 @@ if (mysqli_num_rows($queryctyname) != 0) {
             <div >
                 <input onclick="document.getElementById('scr_1001a').style.display='none'" class="w3-button w3-green w3-section w3-center" type="submit" name="xacnhan" style="width: 300px" value="Xác nhận">
             </div>
-
         </div>
     </div>
 </div>

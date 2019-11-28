@@ -73,6 +73,8 @@
             if($dangnhap=='tea'){
                 include "../view/teacher_view.php";
                 include "../view/teacher_view2.php";
+                include "../view/teacher_view3.php";
+                include "../view/teacher_view4.php";
             }
             if($dangnhap=='com'){
                 include "../view/company_view.php";

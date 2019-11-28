@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1:3306
--- Thời gian đã tạo: Th10 23, 2019 lúc 07:23 AM
+-- Thời gian đã tạo: Th10 28, 2019 lúc 04:56 AM
 -- Phiên bản máy phục vụ: 5.7.21
 -- Phiên bản PHP: 5.6.35
 
@@ -97,9 +97,9 @@ CREATE TABLE IF NOT EXISTS `intern_organization_requests` (
 INSERT INTO `intern_organization_requests` (`id`, `organization_id`, `subject`, `short_description`, `amount`, `date_submitted`, `status`) VALUES
 (123, 1243, 'sadsa', 'dsasa', '5', '2019-11-12 00:00:00', 0),
 (132, 123, 'ewqew', 'qwewqewq', '5', '2019-11-13 00:00:00', 0),
-(222, 234, 'sadds', '12321', '5', '2019-11-13 00:00:00', 0),
-(234, 1243, 'wqeqweqw', 'weqewq', '5', '2019-11-13 00:00:00', 0),
-(456, 123, '123321', 'qweqwe', '10', '2019-11-13 00:00:00', 0);
+(222, 234, 'sadds', '12321', '5', '2019-11-13 00:00:00', 1),
+(234, 1243, 'wqeqweqw', 'weqewq', '5', '2019-11-13 00:00:00', 1),
+(456, 123, '123321', 'qweqwe', '10', '2019-11-13 00:00:00', 1);
 
 -- --------------------------------------------------------
 
@@ -144,14 +144,17 @@ CREATE TABLE IF NOT EXISTS `intern_organization_request_assignment` (
   PRIMARY KEY (`id`),
   KEY `fk_organization_request_id_2` (`organization_request_id`),
   KEY `fk_student_id_2` (`student_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=124 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=126 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Đang đổ dữ liệu cho bảng `intern_organization_request_assignment`
 --
 
 INSERT INTO `intern_organization_request_assignment` (`id`, `organization_request_id`, `student_id`, `start_date`, `end_date`, `status`, `create_date`) VALUES
-(123, 123, 123, '2019-11-05', '2019-11-04', 0, '2019-11-05');
+(1, 123, 123, '2019-11-05', '2019-11-04', 1, '2019-11-05'),
+(123, 123, 123, '2019-11-05', '2019-11-04', 0, '2019-11-05'),
+(124, 123, 123, '2019-11-05', '2019-11-04', 2, '2019-11-05'),
+(125, 222, 123, '2019-11-05', '2019-11-04', 2, '2019-11-05');
 
 -- --------------------------------------------------------
 
@@ -177,7 +180,7 @@ CREATE TABLE IF NOT EXISTS `intern_students` (
 --
 
 INSERT INTO `intern_students` (`id`, `student_code`, `first_name`, `sur_name`, `last_name`, `date_of_birth`, `join_date`, `class_name`) VALUES
-(123, 'hus16001784', 'cao', 'thọ', 'hiếu', '2019-11-05', '2019-11-06', 'k61');
+(123, 'hus16001784', 'cao', 'tho', 'hieu', '2019-11-05', '2019-11-06', 'k61');
 
 -- --------------------------------------------------------
 
@@ -224,7 +227,14 @@ CREATE TABLE IF NOT EXISTS `intern_teachers` (
   `full_name` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   `sex` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `intern_teachers`
+--
+
+INSERT INTO `intern_teachers` (`id`, `teacher_code`, `full_name`, `sex`) VALUES
+(1, '001', 'lan anh', 'tin');
 
 --
 -- Các ràng buộc cho các bảng đã đổ
