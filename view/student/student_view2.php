@@ -1,5 +1,5 @@
 <?php
-$querystu2 = mysqli_query($conn,"SELECT organization_id,status,short_description,amount  FROM intern_organization_requests ");
+$querystu2 = mysqli_query($conn,"SELECT organization_id,status,short_description,amount,id  FROM intern_organization_requests ");
 if (mysqli_num_rows($querystu2) != 0) {
     $rowstu2 = mysqli_fetch_all($querystu2);
     for ($i=0;$i<mysqli_num_rows($querystu2);$i++){
@@ -7,6 +7,7 @@ if (mysqli_num_rows($querystu2) != 0) {
         $status2[]=$rowstu2[$i][1];
         $short_description[$i]=$rowstu2[$i][2];
         $amount[$i]=$rowstu2[$i][3];
+        $organization_request_id[$i]=$rowstu2[$i][4];
     }
 
 
@@ -41,11 +42,11 @@ for ($i=0;$i<mysqli_num_rows($querystu2);$i++) {
                             <th><?php echo $short_description[0]?></th>
                             <th><?php echo $amount[0]?></th>
                             <th><?php echo $amount[0]?></th>
-                            <th><?php echo $status2[0]?></th>
+                            <th><?php if($status2[0]==0){echo "chưa duyệt";}else{echo "đã duyệt";}?></th>
                             <th><button onclick="f(); a()" class="w3-light-grey">chi tiet</button></th>
                         </tr>
-                        <?php if(mysqli_num_rows($querystu2) >= 2) include "studentRow/btn2.php"?>
-                        <?php if(mysqli_num_rows($querystu2) >= 3) include "studentRow/btn3.php"?>
+                        <?php if(mysqli_num_rows($querystu2) >= 2) include "../view/studentRow/btn2.php"?>
+                        <?php if(mysqli_num_rows($querystu2) >= 3) include "../view/studentRow/btn3.php"?>
                    </table>
                 </td>
                 </tr>
@@ -74,10 +75,15 @@ for ($i=0;$i<mysqli_num_rows($querystu2);$i++) {
                 <h5 id="e"></h5>
                 <h5 id="f"></h5>
             </div>
-            <div >
+            <form action="../view/student/xuly1.php" method="get" >
+                <input style="display: none" name="idCompany" id="a1">
+                <input style="display: none" name="idStudent" value='<?php echo $studentId?>'>
+                <input style="display: none" name="studentCode" value='<?php echo $username?>'>
+
                 <input onclick="document.getElementById('scr_1001c').style.display='none'" class="w3-button w3-green w3-section w3-center" type="submit" name="dangky" style="width: 300px" value="Đăng ký">
-                <input onclick="document.getElementById('scr_1001c').style.display='none';document.getElementById('scr_1001b').style.display='block'" class="w3-button w3-green w3-section w3-center" type="submit" name="trove" style="width: 300px" value="Trở về">
-            </div>
+
+            </form>
+            <input onclick="document.getElementById('scr_1001c').style.display='none';document.getElementById('scr_1001b').style.display='block'" class="w3-button w3-green w3-section w3-center"   style="width: 300px" value="Trở về">
 
         </div>
     </div>
@@ -92,45 +98,30 @@ for ($i=0;$i<mysqli_num_rows($querystu2);$i++) {
         }
     }
     function a(){
-        namecongty = '<?php echo $namecty2[0]; ?>';
-        mota= '<?php echo $short_description[0]; ?>';
-        cantuyen= '<?php echo $amount[0]; ?>';
-        dadk= '<?php echo $amount[0]; ?>';
-        dkpc= '<?php echo $amount[0]; ?>';
-        tt= '<?php echo $status2[0]; ?>';
-        document.getElementById('a').innerHTML = namecongty;
-        document.getElementById('b').innerHTML = mota;
-        document.getElementById('c').innerHTML = cantuyen;
-        document.getElementById('d').innerHTML = dadk;
-        document.getElementById('e').innerHTML = dkpc;
-        document.getElementById('f').innerHTML = tt;
+        document.getElementById('a').innerHTML = '<?php echo $namecty2[0]; ?>';
+        document.getElementById('a1').value = '<?php echo $organization_request_id[0]; ?>';
+        document.getElementById('b').innerHTML = '<?php echo $short_description[0]; ?>';
+        document.getElementById('c').innerHTML = '<?php echo $amount[0]; ?>';
+        document.getElementById('d').innerHTML = '<?php echo $amount[0]; ?>';
+        document.getElementById('e').innerHTML = '<?php echo $amount[0]; ?>';
+        document.getElementById('f').innerHTML = '<?php if($status2[0]==0){echo "chưa duyệt";}else{echo "đã duyệt";}; ?>';
     }
     function b(){
-        namecongty = '<?php echo $namecty2[1]; ?>';
-        mota= '<?php echo $short_description[1]; ?>';
-        cantuyen= '<?php echo $amount[1]; ?>';
-        dadk= '<?php echo $amount[1]; ?>';
-        dkpc= '<?php echo $amount[1]; ?>';
-        tt= '<?php echo $status2[1]; ?>';
-        document.getElementById('a').innerHTML = namecongty;
-        document.getElementById('b').innerHTML = mota;
-        document.getElementById('c').innerHTML = cantuyen;
-        document.getElementById('d').innerHTML = dadk;
-        document.getElementById('e').innerHTML = dkpc;
-        document.getElementById('f').innerHTML = tt;
+        document.getElementById('a').innerHTML = '<?php echo $namecty2[1]; ?>';
+        document.getElementById('a1').value = '<?php echo $organization_request_id[1]; ?>';
+        document.getElementById('b').innerHTML = '<?php echo $short_description[1]; ?>';
+        document.getElementById('c').innerHTML = '<?php echo $amount[1]; ?>';
+        document.getElementById('d').innerHTML = '<?php echo $amount[1]; ?>';
+        document.getElementById('e').innerHTML = '<?php echo $amount[1]; ?>';
+        document.getElementById('f').innerHTML = '<?php if($status2[1]==0){echo "chưa duyệt";}else{echo "đã duyệt";}; ?>';
     }
     function c(){
-        namecongty = '<?php echo $namecty2[2]; ?>';
-        mota= '<?php echo $short_description[2]; ?>';
-        cantuyen= '<?php echo $amount[2]; ?>';
-        dadk= '<?php echo $amount[2]; ?>';
-        dkpc= '<?php echo $amount[2]; ?>';
-        tt= '<?php echo $status2[2]; ?>';
-        document.getElementById('a').innerHTML = namecongty;
-        document.getElementById('b').innerHTML = mota;
-        document.getElementById('c').innerHTML = cantuyen;
-        document.getElementById('d').innerHTML = dadk;
-        document.getElementById('e').innerHTML = dkpc;
-        document.getElementById('f').innerHTML = tt;
+        document.getElementById('a').innerHTML = '<?php echo $namecty2[2]; ?>';
+        document.getElementById('a1').value = '<?php echo $organization_request_id[2]; ?>';
+        document.getElementById('b').innerHTML = '<?php echo $short_description[2]; ?>';
+        document.getElementById('c').innerHTML = '<?php echo $amount[2]; ?>';
+        document.getElementById('d').innerHTML = '<?php echo $amount[2]; ?>';
+        document.getElementById('e').innerHTML = '<?php echo $amount[2]; ?>';
+        document.getElementById('f').innerHTML = '<?php if($status2[2]==0){echo "chưa duyệt";}else{echo "đã duyệt";}; ?>';
     }
 </script>

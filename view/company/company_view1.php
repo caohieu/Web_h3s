@@ -49,12 +49,12 @@ if (mysqli_num_rows($querycom) != 0) {
                                 <th><?php echo $short_description[0]?></th>
                                 <th><?php echo $amount[0]?></th>
                                 <th><?php echo $amount[0]?></th>
-                                <th><?php echo $status2[0]?></th>
+                                <th><?php if($status2[0]==0){echo "chưa duyệt";}else{echo "đã duyệt";}?></th>
                                 <th><button onclick="f();a()" class="w3-light-grey">Sua</button></th>
                                 <th><button onclick="f1();a1()" class="w3-light-grey">Danh sách</button></th>
                             </tr>
-                            <?php if(mysqli_num_rows($querycom) >= 2) include "companyRow/btn2.php"?>
-                            <?php if(mysqli_num_rows($querycom) >= 3) include "companyRow/btn3.php"?>
+                            <?php if(mysqli_num_rows($querycom) >= 2) include "../view/companyRow/btn2.php"?>
+                            <?php if(mysqli_num_rows($querycom) >= 3) include "../view/companyRow/btn3.php"?>
                         </table>
                     </td>
                 </tr>
@@ -67,27 +67,30 @@ if (mysqli_num_rows($querycom) != 0) {
     <h1 class="w3-padding-32 w3-center">SỬA PHIẾU ĐĂNG KÝ</h1>
     <div class="w3-center">
         <div class="w3-content"style="width: 500px">
+            <form action='../view/company/xuly.php' method='GET'>
             <div class="w3-half">
                 <h5> Tên công ty : </h5>
                 <h5> Mô tả (vị trí) : </h5>
                 <h5> Số người cần tuyển : </h5>
-                <h5> Số người đã đăng ký : </h5>
-                <h5> Số người đã được phân công : </h5>
-                <h5> Trạng thái : </h5>
+                <!--<h5> Số người đã đăng ký : </h5>
+                <h5> Số người đã được phân công : </h5>-->
+                <!--<h5> Trạng thái : </h5>-->
             </div>
             <div class="w3-half">
                 <h5 id="a"><?php echo $name; ?></h5>
-                <input style="height: 35px" id="b">
-                <input style="height: 35px" id="c">
-                <input style="height: 35px" id="d">
-                <input style="height: 35px" id="e">
-                <input style="height: 35px" id="f">
+                <input name="description" style="height: 35px" id="b">
+                <input name="need" style="height: 35px" id="c">
+                <!--<input name="dadk" style="height: 35px" id="d">
+                <input name="daphancong" style="height: 35px" id="e">-->
+                <!--<input name="tt" style="height: 35px" id="f">-->
+                <input name="idRequests" style="display: none" id="g">
+                <input style="display: none" name="companyCode" value='<?php echo $username?>'>
             </div>
-            <div>
-                <input onclick="document.getElementById('scr_1002e').style.display='none'" class="w3-button w3-green w3-section w3-center" type="submit" name="dangky" style="width: 300px" value="Xac Nhan">
-                <input onclick="document.getElementById('scr_1002e').style.display='none';document.getElementById('scr_1002').style.display='block'" class="w3-button w3-green w3-section w3-center" type="submit" name="trove" style="width: 300px" value="Trở Về">
-            </div>
+                <input onclick="document.getElementById('scr_1002e').style.display='none'" class="w3-button w3-green w3-section w3-center" type="submit" name="suaphieu" style="width: 300px" value="Xac Nhan">
 
+
+            </form>
+            <input onclick="document.getElementById('scr_1002e').style.display='none';document.getElementById('scr_1002').style.display='block'" class="w3-button w3-green w3-section w3-center" type="submit" name="trove" style="width: 300px" value="Trở Về">
         </div>
     </div>
 </div>
@@ -99,50 +102,37 @@ function f() {
         document.getElementById('scr_1002e').style.display='block'
     }
 }
-var namecongty,mota,cantuyen,dadk,dkpc,tt;
-
 function a(){
-    mota= '<?php echo $short_description[0]; ?>';
-    cantuyen= '<?php echo $amount[0]; ?>';
-    dadk= '<?php echo $amount[0]; ?>';
-    dkpc= '<?php echo $amount[0]; ?>';
-    tt= '<?php echo $status2[0]; ?>';
-    document.getElementById('b').value  = mota;
-    document.getElementById('c').value  = cantuyen;
-    document.getElementById('d').value  = dadk;
-    document.getElementById('e').value  = dkpc;
-    document.getElementById('f').value  = tt;
+
+    document.getElementById('b').value = '<?php if(!empty($short_description[0])) echo $short_description[0]; ?>';
+    document.getElementById('c').value = '<?php if(!empty($amount[0])) echo $amount[0]; ?>';
+    //document.getElementById('d').value = '<?php /*if(!empty($amount[0])) echo $amount[0]; */?>/*';*/
+    //document.getElementById('e').value = '<?php if(!empty($amount[0])) echo $amount[0]; ?>';
+    //document.getElementById('f').value = '<?php if(!empty($status2[0])) echo $status2[0]; ?>';
+    document.getElementById('g').value = '<?php if(!empty($idRequest[0])) echo $idRequest[0]; ?>';
+
 }
 function b(){
-    mota= '<?php if(!empty($short_description[1])) echo $short_description[1]; ?>';
-    cantuyen= '<?php if(!empty($amount[1])) echo $amount[1]; ?>';
-    dadk= '<?php if(!empty($amount[1])) echo $amount[1]; ?>';
-    dkpc= '<?php if(!empty($amount[1])) echo $amount[1]; ?>';
-    tt= '<?php if(!empty($status2[1])) echo $status2[1]; ?>';
-    document.getElementById('b').value = mota;
-    document.getElementById('c').value = cantuyen;
-    document.getElementById('d').value = dadk;
-    document.getElementById('e').value = dkpc;
-    document.getElementById('f').value = tt;
+    document.getElementById('b').value = '<?php if(!empty($short_description[1])) echo $short_description[1]; ?>';
+    document.getElementById('c').value = '<?php if(!empty($amount[1])) echo $amount[1]; ?>';
+    //document.getElementById('d').value = '<?php /*if(!empty($amount[1])) echo $amount[1]; */?>/*';*/
+    //document.getElementById('e').value = '<?php /*if(!empty($amount[1])) echo $amount[1]; */?>';
+    //document.getElementById('f').value = '<?php if(!empty($status2[1])) echo $status2[1]; ?>';
+    document.getElementById('g').value = '<?php if(!empty($idRequest[1])) echo $idRequest[1]; ?>';
 }
 function c(){
-    mota= '<?php if(!empty($short_description[2])) echo $short_description[2]; ?>';
-    cantuyen= '<?php if(!empty($amount[2])) echo $amount[2]; ?>';
-    dadk= '<?php if(!empty($amount[2])) echo $amount[2]; ?>';
-    dkpc= '<?php if(!empty($amount[2])) echo $amount[2]; ?>';
-    tt= '<?php if(!empty($status2[2])) echo $status2[2]; ?>';
-    document.getElementById('b').value  = mota;
-    document.getElementById('c').value  = cantuyen;
-    document.getElementById('d').value  = dadk;
-    document.getElementById('e').value  = dkpc;
-    document.getElementById('f').value  = tt;
+    document.getElementById('b').value = '<?php if(!empty($short_description[2])) echo $short_description[2]; ?>';
+    document.getElementById('c').value = '<?php if(!empty($amount[2])) echo $amount[2]; ?>';
+    //document.getElementById('d').value = '<?php /*if(!empty($amount[2])) echo $amount[2]; */?>';
+    // document.getElementById('e').value = '<?php /*if(!empty($amount[2])) echo $amount[2]; */?>';
+    //document.getElementById('f').value = '<?php /*if(!empty($status2[2])) echo $status2[2]; */?>';
+    document.getElementById('g').value = '<?php if(!empty($idRequest[1])) echo $idRequest[1]; ?>';
 
 }
 
 function f1() {
     if (document.getElementById('scr_1002').style.display == 'block'){
         document.getElementById('scr_1002').style.display='none';
-        //document.getElementById('scr_1002e').style.display='block'
     }
 }
 function a1(){

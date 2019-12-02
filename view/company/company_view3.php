@@ -2,6 +2,7 @@
     <h1 class="w3-padding-32 w3-center">TẠO PHIẾU ĐĂNG KÝ</h1>
     <div class="w3-center">
         <div class="w3-content"style="width: 500px">
+            <form action='../view/company/xuly1.php' method='GET'>
             <div class="w3-half">
                 <h5> Tên công ty : </h5>
                 <h5> Mô tả(vị trí) : </h5>
@@ -10,14 +11,16 @@
             </div>
             <div class="w3-half">
                 <h5><?php echo $name; ?></h5>
-                <input style="height: 35px" id="b">
-                <input style="height: 35px" id="c">
-                <input style="height: 35px" id="d">
+                <input style="height: 35px" name="description" id="b">
+                <input style="height: 35px" name="need" id="c">
+                <input style="height: 35px" name="date" id="d">
+                <input style="display: none" name="companyCode" value='<?php echo $username?>'>
+                <input style="display: none" name="companyId" value='<?php echo $idcty?>'>
             </div>
-            <div>
+
                 <input onclick="document.getElementById('scr_1002c').style.display='none'" class="w3-button w3-green w3-section w3-center" type="submit" name="dangky" style="width: 300px" value="Xac Nhan">
-                <input onclick="document.getElementById('scr_1002c').style.display='none'" class="w3-button w3-green w3-section w3-center" type="submit" name="trove" style="width: 300px" value="Trở Về">
-            </div>
+            </form>
+            <input onclick="document.getElementById('scr_1002c').style.display='none'" class="w3-button w3-green w3-section w3-center" type="submit" name="trove" style="width: 300px" value="Trở Về">
         </div>
     </div>
 </div>

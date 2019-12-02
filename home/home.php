@@ -67,19 +67,19 @@
         }
         else{
             if($dangnhap=='stu'){
-                include "../view/student_view.php";
-                include "../view/student_view2.php";
+                include "../view/student/student_view1.php";
+                include "../view/student/student_view2.php";
             }
             if($dangnhap=='tea'){
-                include "../view/teacher_view.php";
-                include "../view/teacher_view2.php";
-                include "../view/teacher_view3.php";
-                include "../view/teacher_view4.php";
+                include "../view/teacher/teacher_view1.php";
+                include "../view/teacher/teacher_view2.php";
+                include "../view/teacher/teacher_view3.php";
+                include "../view/teacher/teacher_view4.php";
             }
             if($dangnhap=='com'){
-                include "../view/company_view.php";
-                include "../view/company_view2.php";
-                include "../view/company_view3.php";
+                include "../view/company/company_view1.php";
+                include "../view/company/company_view2.php";
+                include "../view/company/company_view3.php";
             }
 
         }

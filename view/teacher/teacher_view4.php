@@ -1,5 +1,5 @@
 <?php
-$queryDanhSachPhieuv1 = mysqli_query($conn,"SELECT organization_id,status,short_description,amount,date_submitted  FROM intern_organization_requests where status='0'");
+$queryDanhSachPhieuv1 = mysqli_query($conn,"SELECT organization_id,status,short_description,amount,date_submitted,id  FROM intern_organization_requests where status='0'");
 if (mysqli_num_rows($queryDanhSachPhieuv1) != 0) {
     $rowDanhSachPhieuv1 = mysqli_fetch_all($queryDanhSachPhieuv1);
     for ($i=0;$i<mysqli_num_rows($queryDanhSachPhieuv1);$i++){
@@ -8,6 +8,7 @@ if (mysqli_num_rows($queryDanhSachPhieuv1) != 0) {
         $short_descriptionv1[$i]=$rowDanhSachPhieuv1[$i][2];
         $amountv1[$i]=$rowDanhSachPhieuv1[$i][3];
         $date_submittedv1[$i]=$rowDanhSachPhieuv1[$i][4];
+        $idRequestsv1[$i]=$rowDanhSachPhieuv1[$i][5];
 
     }
 }
@@ -22,7 +23,7 @@ for ($j=0;$j<mysqli_num_rows($queryDanhSachPhieuv1);$j++){
 ?>
 <!DOCTYPE html>
 <div id="scr_1003v1" class="w3-row-padding w3-light-grey w3-padding-64 w3-container" style="height: 800px ;display: none">
-    <h1 class="w3-padding-32 w3-center">Danh sách phiếu đã duyệt</h1>
+    <h1 class="w3-padding-32 w3-center">Danh sách phiếu chưa duyệt</h1>
     <div class="w3-center">
         <div class="w3-content"style="width: 700px">
             <table>
@@ -38,16 +39,16 @@ for ($j=0;$j<mysqli_num_rows($queryDanhSachPhieuv1);$j++){
                                 <th style="width: 15%">Duyệt</th>
                             </tr>
                             <?php
-                            if(!empty($nameCompanyv1[0])) include "teacherRow/row1003v1/row1.php";
-                            if(!empty($nameCompanyv1[1])) include "teacherRow/row1003v1/row2.php";
-                            if(!empty($nameCompanyv1[2])) include "teacherRow/row1003v1/row3.php";
-                            if(!empty($nameCompanyv1[3])) include "teacherRow/row1003v1/row4.php";
-                            if(!empty($nameCompanyv1[4])) include "teacherRow/row1003v1/row5.php";
-                            if(!empty($nameCompanyv1[5])) include "teacherRow/row1003v1/row6.php";
-                            if(!empty($nameCompanyv1[6])) include "teacherRow/row1003v1/row7.php";
-                            if(!empty($nameCompanyv1[7])) include "teacherRow/row1003v1/row8.php";
-                            if(!empty($nameCompanyv1[8])) include "teacherRow/row1003v1/row9.php";
-                            if(!empty($nameCompanyv1[9])) include "teacherRow/row1003v1/row10.php"?>
+                            if(!empty($nameCompanyv1[0])) include "../view/teacherRow/row1003v1/row1.php";
+                            if(!empty($nameCompanyv1[1])) include "../view/teacherRow/row1003v1/row2.php";
+                            if(!empty($nameCompanyv1[2])) include "../view/teacherRow/row1003v1/row3.php";
+                            if(!empty($nameCompanyv1[3])) include "../view/teacherRow/row1003v1/row4.php";
+                            if(!empty($nameCompanyv1[4])) include "../view/teacherRow/row1003v1/row5.php";
+                            if(!empty($nameCompanyv1[5])) include "../view/teacherRow/row1003v1/row6.php";
+                            if(!empty($nameCompanyv1[6])) include "../view/teacherRow/row1003v1/row7.php";
+                            if(!empty($nameCompanyv1[7])) include "../view/teacherRow/row1003v1/row8.php";
+                            if(!empty($nameCompanyv1[8])) include "../view/teacherRow/row1003v1/row9.php";
+                            if(!empty($nameCompanyv1[9])) include "../view/teacherRow/row1003v1/row10.php"?>
                         </table>
                     </td>
                 </tr>

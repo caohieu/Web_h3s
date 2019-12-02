@@ -8,13 +8,21 @@
         }else {
             document.getElementById('scr_1002').style.display='none'
         }
-        document.getElementById('scr_1002c').style.display='none'" class="w3-bar-item w3-button">Danh sách phiếu</a>
+        document.getElementById('scr_1002c').style.display='none';
+        document.getElementById('scr_1002e').style.display='none';
+        document.getElementById('scr_1002s1').style.display='none';
+        document.getElementById('scr_1002s2').style.display='none';
+        document.getElementById('scr_1002s0').style.display='none'" class="w3-bar-item w3-button">Danh sách phiếu</a>
         <a onclick="
         if (document.getElementById('scr_1002c').style.display=='none'){
             document.getElementById('scr_1002c').style.display='block'
         }else {
             document.getElementById('scr_1002c').style.display='none'
         }
-            document.getElementById('scr_1002').style.display='none'" class="w3-bar-item w3-button">Tạo mới yêu cầu</a>
+           document.getElementById('scr_1002').style.display='none';
+        document.getElementById('scr_1002e').style.display='none';
+        document.getElementById('scr_1002s1').style.display='none';
+        document.getElementById('scr_1002s2').style.display='none';
+        document.getElementById('scr_1002s0').style.display='none'" class="w3-bar-item w3-button">Tạo mới yêu cầu</a>
     </div>
 </div>

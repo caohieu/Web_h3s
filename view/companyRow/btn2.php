@@ -3,7 +3,7 @@
     <th><?php echo $short_description[1]?></th>
     <th><?php echo $amount[1]?></th>
     <th><?php echo $amount[1]?></th>
-    <th><?php echo $status2[1]?></th>
+    <th><?php if($status2[1]==0){echo "chưa duyệt";}else{echo "đã duyệt";}?></th>
     <th><button onclick="f();b()" class="w3-light-grey">Sửa</button></th>
     <th><button onclick="f1();b1()" class="w3-light-grey">Danh sách</button></th>
 </tr>
