@@ -10,9 +10,10 @@ if (mysqli_num_rows($querycom) != 0) {
         $idRequest[$i]=$rowcom[$i][4];
         $queryAssignment = mysqli_query($conn,"SELECT student_id  FROM intern_organization_request_assignment WHERE organization_request_id='$idRequest[$i]'");
         if (mysqli_num_rows($queryAssignment) != 0) {
-            $rowAssignment = mysqli_fetch_array($queryAssignment);
+            $rowAssignment = mysqli_fetch_all($queryAssignment);
             for ($j=0;$j<mysqli_num_rows($queryAssignment);$j++){
-                $queryStudent = mysqli_query($conn,"SELECT first_name,last_name  FROM intern_students WHERE id='$rowAssignment[$j]'");
+                $arr[$j]=$rowAssignment[$j][0];
+                $queryStudent = mysqli_query($conn,"SELECT first_name,last_name  FROM intern_students WHERE id='$arr[$j]'");
                 if (mysqli_num_rows($queryStudent) != 0) {
                     $rowStudent = mysqli_fetch_array($queryStudent);
                     $firstName[$i][$j] = $rowStudent[0];
@@ -44,17 +45,19 @@ if (mysqli_num_rows($querycom) != 0) {
                                 <th style="width: 15%">Sua</th>
                                 <th style="width: 15%">Danh sách</th>
                             </tr>
-                            <tr>
-                                <th><?php echo $name?></th>
-                                <th><?php echo $short_description[0]?></th>
-                                <th><?php echo $amount[0]?></th>
-                                <th><?php echo $amount[0]?></th>
-                                <th><?php if($status2[0]==0){echo "chưa duyệt";}else{echo "đã duyệt";}?></th>
-                                <th><button onclick="f();a()" class="w3-light-grey">Sua</button></th>
-                                <th><button onclick="f1();a1()" class="w3-light-grey">Danh sách</button></th>
-                            </tr>
-                            <?php if(mysqli_num_rows($querycom) >= 2) include "../view/companyRow/btn2.php"?>
-                            <?php if(mysqli_num_rows($querycom) >= 3) include "../view/companyRow/btn3.php"?>
+                            <?php
+                            if(mysqli_num_rows($querycom) >= 1) include "../view/companyRow/btn1.php";
+                            if(mysqli_num_rows($querycom) >= 2) include "../view/companyRow/btn2.php";
+                            if(mysqli_num_rows($querycom) >= 3) include "../view/companyRow/btn3.php";
+                            if(mysqli_num_rows($querycom) >= 4) include "../view/companyRow/btn4.php";
+                            if(mysqli_num_rows($querycom) >= 5) include "../view/companyRow/btn5.php";
+                            if(mysqli_num_rows($querycom) >= 6) include "../view/companyRow/btn6.php";
+                            if(mysqli_num_rows($querycom) >= 7) include "../view/companyRow/btn7.php";
+                            if(mysqli_num_rows($querycom) >= 8) include "../view/companyRow/btn8.php";
+                            if(mysqli_num_rows($querycom) >= 9) include "../view/companyRow/btn9.php";
+                            if(mysqli_num_rows($querycom) >= 10) include "../view/companyRow/btn10.php";
+
+                            ?>
                         </table>
                     </td>
                 </tr>
@@ -107,26 +110,62 @@ function a(){
     document.getElementById('b').value = '<?php if(!empty($short_description[0])) echo $short_description[0]; ?>';
     document.getElementById('c').value = '<?php if(!empty($amount[0])) echo $amount[0]; ?>';
     //document.getElementById('d').value = '<?php /*if(!empty($amount[0])) echo $amount[0]; */?>/*';*/
-    //document.getElementById('e').value = '<?php if(!empty($amount[0])) echo $amount[0]; ?>';
-    //document.getElementById('f').value = '<?php if(!empty($status2[0])) echo $status2[0]; ?>';
+    //document.getElementById('e').value = '<?php /*if(!empty($amount[0])) echo $amount[0]; */?>/*';*/
+    //document.getElementById('f').value = '<?php /*if(!empty($status2[0])) echo $status2[0]; */?>/*';*/
     document.getElementById('g').value = '<?php if(!empty($idRequest[0])) echo $idRequest[0]; ?>';
 
 }
 function b(){
     document.getElementById('b').value = '<?php if(!empty($short_description[1])) echo $short_description[1]; ?>';
     document.getElementById('c').value = '<?php if(!empty($amount[1])) echo $amount[1]; ?>';
-    //document.getElementById('d').value = '<?php /*if(!empty($amount[1])) echo $amount[1]; */?>/*';*/
-    //document.getElementById('e').value = '<?php /*if(!empty($amount[1])) echo $amount[1]; */?>';
-    //document.getElementById('f').value = '<?php if(!empty($status2[1])) echo $status2[1]; ?>';
     document.getElementById('g').value = '<?php if(!empty($idRequest[1])) echo $idRequest[1]; ?>';
 }
 function c(){
     document.getElementById('b').value = '<?php if(!empty($short_description[2])) echo $short_description[2]; ?>';
     document.getElementById('c').value = '<?php if(!empty($amount[2])) echo $amount[2]; ?>';
-    //document.getElementById('d').value = '<?php /*if(!empty($amount[2])) echo $amount[2]; */?>';
-    // document.getElementById('e').value = '<?php /*if(!empty($amount[2])) echo $amount[2]; */?>';
-    //document.getElementById('f').value = '<?php /*if(!empty($status2[2])) echo $status2[2]; */?>';
+    document.getElementById('g').value = '<?php if(!empty($idRequest[2])) echo $idRequest[2]; ?>';
+
+}
+function d(){
+    document.getElementById('b').value = '<?php if(!empty($short_description[3])) echo $short_description[3]; ?>';
+    document.getElementById('c').value = '<?php if(!empty($amount[3])) echo $amount[3]; ?>';
+    document.getElementById('g').value = '<?php if(!empty($idRequest[3])) echo $idRequest[3]; ?>';
+
+}
+function e(){
+    document.getElementById('b').value = '<?php if(!empty($short_description[4])) echo $short_description[4]; ?>';
+    document.getElementById('c').value = '<?php if(!empty($amount[4])) echo $amount[4]; ?>';
+    document.getElementById('g').value = '<?php if(!empty($idRequest[4])) echo $idRequest[4]; ?>';
+
+}
+function g(){
+    document.getElementById('b').value = '<?php if(!empty($short_description[5])) echo $short_description[5]; ?>';
+    document.getElementById('c').value = '<?php if(!empty($amount[5])) echo $amount[5]; ?>';
+    document.getElementById('g').value = '<?php if(!empty($idRequest[5])) echo $idRequest[5]; ?>';
+
+}
+function h(){
+    document.getElementById('b').value = '<?php if(!empty($short_description[6])) echo $short_description[6]; ?>';
+    document.getElementById('c').value = '<?php if(!empty($amount[6])) echo $amount[6]; ?>';
+    document.getElementById('g').value = '<?php if(!empty($idRequest[6])) echo $idRequest[6]; ?>';
+
+}
+function i(){
+    document.getElementById('b').value = '<?php if(!empty($short_description[7])) echo $short_description[7]; ?>';
+    document.getElementById('c').value = '<?php if(!empty($amount[7])) echo $amount[7]; ?>';
+    document.getElementById('g').value = '<?php if(!empty($idRequest[7])) echo $idRequest[7]; ?>';
+
+}
+function j(){
+    document.getElementById('b').value = '<?php if(!empty($short_description[8])) echo $short_description[8]; ?>';
+    document.getElementById('c').value = '<?php if(!empty($amount[8])) echo $amount[8]; ?>';
     document.getElementById('g').value = '<?php if(!empty($idRequest[1])) echo $idRequest[1]; ?>';
+
+}
+function k(){
+    document.getElementById('b').value = '<?php if(!empty($short_description[9])) echo $short_description[9]; ?>';
+    document.getElementById('c').value = '<?php if(!empty($amount[9])) echo $amount[9]; ?>';
+    document.getElementById('g').value = '<?php if(!empty($idRequest[9])) echo $idRequest[9]; ?>';
 
 }
 
@@ -149,6 +188,41 @@ function b1(){
 function c1(){
     if (document.getElementById('scr_1002s2').style.display == 'none'){
         document.getElementById('scr_1002s2').style.display='block';
+    }
+}
+function d1(){
+    if (document.getElementById('scr_1002s3').style.display == 'none'){
+        document.getElementById('scr_1002s3').style.display='block';
+    }
+}
+function e1(){
+    if (document.getElementById('scr_1002s4').style.display == 'none'){
+        document.getElementById('scr_1002s4').style.display='block';
+    }
+}
+function g1(){
+    if (document.getElementById('scr_1002s5').style.display == 'none'){
+        document.getElementById('scr_1002s5').style.display='block';
+    }
+}
+function h1(){
+    if (document.getElementById('scr_1002s6').style.display == 'none'){
+        document.getElementById('scr_1002s6').style.display='block';
+    }
+}
+function i1(){
+    if (document.getElementById('scr_1002s7').style.display == 'none'){
+        document.getElementById('scr_1002s7').style.display='block';
+    }
+}
+function j1(){
+    if (document.getElementById('scr_1002s8').style.display == 'none'){
+        document.getElementById('scr_1002s8').style.display='block';
+    }
+}
+function k1(){
+    if (document.getElementById('scr_1002s9').style.display == 'none'){
+        document.getElementById('scr_1002s9').style.display='block';
     }
 }
 </script>

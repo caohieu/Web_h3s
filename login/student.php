@@ -11,8 +11,12 @@ if (isset($_GET['dangnhap']))
         $name=$row['first_name'];
         $studentId=$row['id'];
         $dangnhap='stu';
-        //header("Location: home.php");
         include "../home/home.php";
+        exit;
+    }
+    else{
+        echo "mk sai ";
+        echo '<a href="../home/home.php">trở về</a>';
         exit;
     }
 }

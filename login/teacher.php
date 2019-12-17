@@ -10,8 +10,11 @@ if (isset($_GET['dangnhap']))
         $row = mysqli_fetch_array($query);
         $name=$row['full_name'];
         $dangnhap="tea";
-        //header("Location: home.php");
         include "../home/home.php";
+        exit;
+    }else{
+        echo "mk sai ";
+        echo '<a href="../home/home.php">trở về</a>';
         exit;
     }
 }

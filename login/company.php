@@ -11,8 +11,12 @@ if (isset($_GET['dangnhap']))
         $name=$row['organization_name'];
         $idcty=$row['id'];
         $dangnhap="com";
-        //header("Location: home.php");
         include "../home/home.php";
+        exit;
+    }
+    else{
+        echo "mk sai ";
+        echo '<a href="../home/home.php">trở về</a>';
         exit;
     }
 }
